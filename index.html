@@ -8,8 +8,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: lightpink; /* color del cuerpo de la página */
-            color: white; /* color de todas las letras de la página */
+            background-color: lightpink;
+            color: white;
         }
 
         header, footer {
@@ -26,12 +26,12 @@
 
         header {
             top: 0;
-            color: white; /* Color del texto del encabezado */
+            color: white;
         }
 
         footer {
             bottom: 0;
-            color: white; /* Color del texto del pie de página */
+            color: white;
         }
 
         .logo {
@@ -51,7 +51,7 @@
 
         .flower-card {
             text-align: center;
-            background: black; /* transparencia del cuadro de las fotos */
+            background: black;
             border-radius: 10px;
             padding: 10px;
             width: 200px;
@@ -73,8 +73,8 @@
         .flower-card button {
             margin-top: 10px;
             padding: 10px;
-            background-color: #ffffff; /* Color del botón de más info */
-            color: red; /* color de las letras del botón de más info */
+            background-color: #ffffff;
+            color: red;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -91,7 +91,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: black; /* transparencia del menú de redes sociales */
+            background: black;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -105,7 +105,7 @@
         .social-menu a {
             margin: 0 10px;
             text-decoration: none;
-            color: green; /* color de las letras de las redes sociales */
+            color: green;
             font-size: 20px;
         }
 
@@ -182,14 +182,7 @@
             <p>Corona de Flores.</p>
             <p>Esto consta con 7 flores y 2 girasoles.</p>
             <p>$14</p>
-            <button onclick="showMenu('img/1.jpg', 'Descripción de la flor 1')">Más Info</button>
-        </div>
-        <div class="flower-card">
-            <img src="img/2.jpg" alt="2" onclick="viewImage(this.src)">
-            <p>Ramos Cumpleañeros.</p>
-            <p>Este ramo consta de 20 rosas a sus gusto, más corona, 2 mariposas y 12 chocolates.</p>
-            <p>$35</p>
-            <button onclick="showMenu('img/2.jpg', 'Descripción de la flor 2')">Más Info</button>
+            <button onclick="showMenu('img/1.jpg', 'Corona de Flores con girasoles')">Más Info</button>
         </div>
         <div class="flower-card">
             <img src="img/3.jpg" alt="3" onclick="viewImage(this.src)">
@@ -258,13 +251,13 @@
 
     <div class="overlay" onclick="hideMenu()"></div>
 
-   <div class="social-menu" id="socialMenu">
-    <p>Síguenos en nuestras redes sociales:</p>
-    <a href="https://www.tiktok.com/@_eternal_boquest12?_t=8sW7oJEqMFi&_r=1" target="_blank">TikTok</a>
-    <a id="whatsappLink" href="https://wa.me/message/NAWTCUGN3LL5L1" target="_blank">WhatsApp</a>
-    <a href="https://www.instagram.com/eternalroses125/profilecard/?igsh=MXZvbWtxM3psa2VoOQ==" target="_blank">Instagram</a>
-</div>
-
+    <div class="social-menu" id="socialMenu">
+        <p>Síguenos en nuestras redes sociales:</p>
+        <a href="https://www.tiktok.com/@_eternal_boquest12?_t=8sW7oJEqMFi&_r=1" target="_blank">TikTok</a>
+        <a href="https://wa.me/50370275518" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/eternalroses125/profilecard/?igsh=MXZvbWtxM3psa2VoOQ==" target="_blank">Instagram</a>
+        <a id="whatsappLink" href="https://wa.me/50370275518" target="_blank"></a>
+    </div>
 
     <div class="image-modal" id="imageModal">
         <img src="" alt="Imagen ampliada">
@@ -272,8 +265,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Enternal Roses. Se hacen envios a Nejapa, san salvador Gratis y Fuera de Nejapa, San Salvador con un costo adicional.</p>
-      
+        <p>© 2025 Enternal Roses. Se hacen envíos a Nejapa, San Salvador Gratis y Fuera de Nejapa, San Salvador con un costo adicional.</p>
     </footer>
 
     <script>
