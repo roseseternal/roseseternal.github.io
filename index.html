@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enternal Roses</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightpink; /* color del cuerpo de la página */
+            color: white; /* color de todas las letras de la página */
+        }
+
+        header, footer {
+            position: fixed;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        header {
+            top: 0;
+            color: white; /* Color del texto del encabezado */
+        }
+
+        footer {
+            bottom: 0;
+            color: white; /* Color del texto del pie de página */
+        }
+
+        .logo {
+            height: 50px;
+            position: absolute;
+            left: 20px;
+        }
+
+        .container {
+            padding: 120px 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .flower-card {
+            text-align: center;
+            background: black; /* transparencia del cuadro de las fotos */
+            border-radius: 10px;
+            padding: 10px;
+            width: 200px;
+        }
+
+        .flower-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .flower-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .flower-card button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffffff; /* Color del botón de más info */
+            color: red; /* color de las letras del botón de más info */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .flower-card button:hover {
+            background-color: black;
+        }
+
+        .social-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: black; /* transparencia del menú de redes sociales */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 30;
+        }
+
+        .social-menu.active {
+            display: block;
+        }
+
+        .social-menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: green; /* color de las letras de las redes sociales */
+            font-size: 20px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 20;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 40;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .image-modal img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .image-modal button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px;
+            background-color: black;
+            color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            header, footer {
+                font-size: 14px;
+            }
+
+            .flower-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .flower-card img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enternal Roses</h1>
+    </header>
+
+    <div class="container">
+        <div class="flower-card">
+            <img src="img/1.jpg" alt="1" onclick="viewImage(this.src)">
+            <p>Corona de Flores.</p>
+            <p>Esto consta con 7 flores y 2 girasoles.</p>
+            <p>$14</p>
+            <button onclick="showMenu('img/1.jpg', 'Descripción de la flor 1')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/2.jpg" alt="2" onclick="viewImage(this.src)">
+            <p>Ramos Cumpleañeros.</p>
+            <p>Este ramo consta de 20 rosas a sus gusto, más corona, 2 mariposas y 12 chocolates.</p>
+            <p>$35</p>
+            <button onclick="showMenu('img/2.jpg', 'Descripción de la flor 2')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/3.jpg" alt="3" onclick="viewImage(this.src)">
+            <p>Rosas Amarillas.</p>
+            <p>Este ramo consta de 8 flores amarillas, más 1 corona y 1 mariposa.</p>
+            <p>$14</p>
+            <button onclick="showMenu('img/3.jpg', 'Descripción de la flor 3')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/5.jpg" alt="5" onclick="viewImage(this.src)">
+            <p>Brillo Dorado.</p>
+            <p>Este ramo consta de 1 girasol en medio más dinero a su gusto alrededor de ella.</p>
+            <p>$7</p>
+            <button onclick="showMenu('img/5.jpg', 'Descripción de la flor 5')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/6.jpg" alt="6" onclick="viewImage(this.src)">
+            <p>Ramos Especiales.</p>
+            <p>Consta de 8 rosas, más 10 fotos de su preferencia, más 1 corona y 1 mariposa.</p>
+            <p>$20</p>
+            <button onclick="showMenu('img/6.jpg', 'Descripción de la flor 6')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/7.jpg" alt="7" onclick="viewImage(this.src)">
+            <p>Fortuna en flor.</p>
+            <p>Consta de 3 rosas, más dinero a su gusto.</p>
+            <p>$7</p>
+            <button onclick="showMenu('img/7.jpg', 'Descripción de la flor 7')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/8.jpg" alt="8" onclick="viewImage(this.src)">
+            <p>Velocidad y Encanto.</p>
+            <p>Este ramos consta de 6 rosas a sus gusto y moto de  Hot Wheels.</p>
+            <P>$12</P>
+            <button onclick="showMenu('img/8.jpg', 'Descripción de la flor 8')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/9.jpg" alt="9" onclick="viewImage(this.src)">
+            <p>Jardín Encantado.</p>
+            <p>Consta de 20 rosas rojas 1 una girasol, más 2 mariposas.</p>
+            <p>$29</p>
+            <button onclick="showMenu('img/9.jpg', 'Descripción de la flor 9')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/10.jpg" alt="10" onclick="viewImage(this.src)">
+            <p>Romance Eterno.</p>
+            <p>Consta de 9 rosas rojas y 5 rosadas, más una mariposa y corona.</p>
+            <p>$25</p>
+            <button onclick="showMenu('img/10.jpg', 'Descripción de la flor 10')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/11.jpg" alt="11" onclick="viewImage(this.src)">
+            <p>Dulce Tentación.</p>
+            <p>Consta de 3 rosas rojas y 2 rosas amarillas, más 1 mariposa y 1 corona.</p>
+            <p>$10</p>
+            <button onclick="showMenu('img/11.jpg', 'Descripción de la flor 11')">Más Info</button>
+        </div>
+        <div class="flower-card">
+            <img src="img/12.jpg" alt="12" onclick="viewImage(this.src)">
+            <p>Encanto de la Abundancia.</p>
+            <p>Consta de 7 rosas a su gusto, más dinero a su gusto y una mariposa.</p>
+            <p>$14</p>
+            <button onclick="showMenu('img/12.jpg', 'Descripción de la flor 12')">Más Info</button>
+        </div>
+    </div>
+
+    <div class="overlay" onclick="hideMenu()"></div>
+
+   <div class="social-menu" id="socialMenu">
+    <p>Síguenos en nuestras redes sociales:</p>
+    <a href="https://www.tiktok.com/@_eternal_boquest12?_t=8sW7oJEqMFi&_r=1" target="_blank">TikTok</a>
+    <a id="whatsappLink" href="https://wa.me/message/NAWTCUGN3LL5L1" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/eternalroses125/profilecard/?igsh=MXZvbWtxM3psa2VoOQ==" target="_blank">Instagram</a>
+</div>
+
+
+    <div class="image-modal" id="imageModal">
+        <img src="" alt="Imagen ampliada">
+        <button onclick="closeImageModal()">Cerrar</button>
+    </div>
+
+    <footer>
+        <p>© 2025 Enternal Roses. Se hacen envios a Nejapa, san salvador Gratis y Fuera de Nejapa, San Salvador con un costo adicional.</p>
+      
+    </footer>
+
+    <script>
+        let selectedImage = '';
+        let selectedDescription = '';
+
+        function showMenu(image, description) {
+            selectedImage = image;
+            selectedDescription = description;
+            const menu = document.getElementById('socialMenu');
+            const overlay = document.querySelector('.overlay');
+            const whatsappLink = document.getElementById('whatsappLink');
+
+            const message = `Hola, estoy interesado en esta flor:\n${description}`;
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+            whatsappLink.href = whatsappUrl;
+            menu.classList.add('active');
+            overlay.classList.add('active');
+            menu.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideMenu() {
+            document.querySelector('.overlay').classList.remove('active');
+            document.getElementById('socialMenu').classList.remove('active');
+        }
+
+        function viewImage(src) {
+            const modal = document.getElementById('imageModal');
+            modal.querySelector('img').src = src;
+            modal.style.display = 'block';
+            document.querySelector('.overlay').classList.add('active');
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.querySelector('.overlay').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
